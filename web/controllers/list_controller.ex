@@ -14,6 +14,16 @@ defmodule Todop.ListController do
     render conn, "new.html", changeset: changeset
   end
 
+  def delete(conn, %{"id" => list_id}) do
+  Repo.get!(List, list_id)
+  |> Repo.delete!
+
+  conn
+  |> put_flash(:info, "List Deleted")
+  |> redirect(to: list_path(conn, :index))
+end
+
+
    def create(conn, %{"list" => name}) do
    changeset = List.changeset(%List{}, name)
 
@@ -28,4 +38,8 @@ defmodule Todop.ListController do
       end
   end
 
+  def show(conn, %{"id" => list_id}) do
+      list = Repo.get!(List, list_id)
+      render conn, "show.html", list: list
+  end
 end

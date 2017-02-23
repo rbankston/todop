@@ -1,0 +1,5 @@
+<div>
+  <h3 class="center">
+<%= @list.name %>
+</h3>
+</div>
