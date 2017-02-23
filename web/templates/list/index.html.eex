@@ -1,0 +1,16 @@
+<h5 class="center">To Do Lists</h5>
+
+<ul class="collection">
+  <%= for list <- @lists do %>
+  <li class="collection-item">
+  <%= list.name %>
+  </li>
+  <% end %>
+</ul>
+
+<div class="fixed-action-btn">
+  <%= link to: list_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">add</i>
+    <% end %>
+  </a>
+</div>
