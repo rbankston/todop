@@ -3,3 +3,10 @@
 <%= @list.name %>
 </h3>
 </div>
+
+<div class="fixed-action-btn">
+  <%= link to: task_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+    <i class="material-icons">add</i>
+    <% end %>
+  </a>
+</div>

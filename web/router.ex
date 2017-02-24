@@ -19,7 +19,7 @@ defmodule Todop.Router do
     resources "/", ListController
   end
 
-  scope "/:list_id", Todop do
+  scope "/task", Todop do
     pipe_through :browser
 
     get "/new", TaskController, :new
