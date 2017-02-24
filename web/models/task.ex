@@ -4,7 +4,7 @@ defmodule Todop.Task do
   schema "tasks" do
     field :name, :string
     field :done, :boolean, default: false
-    belongs_to :lists, Todop.Lists
+    belongs_to :lists, Todop.List
 
     timestamps()
   end
