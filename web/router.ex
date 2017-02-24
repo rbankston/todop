@@ -19,6 +19,12 @@ defmodule Todop.Router do
     resources "/", ListController
   end
 
+  scope "/:list_id", Todop do
+    pipe_through :browser
+
+    get "/new", TaskController, :new
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", Todop do
   #   pipe_through :api
