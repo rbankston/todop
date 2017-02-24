@@ -1,0 +1,5 @@
+defaults:
+  migrate: true
+  migration_command: mix ecto.migrate
+  precompile_assets: false
+  npm: false
