@@ -19,7 +19,7 @@ defmodule Todop.ListController do
   |> Repo.delete!
 
   conn
-  |> put_flash(:info, "List Deleted")
+  |> put_flash(:info, "List Item Deleted")
   |> redirect(to: list_path(conn, :index))
 end
 
@@ -31,15 +31,11 @@ end
    case Repo.insert(changeset) do
     {:ok, _name} ->
       conn
-      |> put_flash(:info, "List Created")
+      |> put_flash(:info, "List Item Created")
      |> redirect(to: list_path(conn, :index))
      {:error, changeset} ->
        render conn, "new.html", changeset: changeset
       end
   end
 
-  def show(conn, %{"id" => list_id}) do
-      list = Repo.get!(List, list_id)
-      render conn, "show.html", list: list
-  end
 end
